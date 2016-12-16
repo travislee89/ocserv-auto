@@ -512,6 +512,7 @@ function ConfigFirewall {
         iptables -I INPUT -p tcp --dport ${port} -j ACCEPT
         iptables -I INPUT -p udp --dport ${port} -j ACCEPT
         iptables -I FORWARD -s ${vpnnetwork} -j ACCEPT
+        iptables -I FORWARD -d ${vpnnetwork} -j ACCEPT
         iptables -t nat -A POSTROUTING -s ${vpnnetwork} -o ${eth} -j MASQUERADE
         #iptables -t nat -A POSTROUTING -j MASQUERADE
         service iptables save
