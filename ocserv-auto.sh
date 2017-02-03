@@ -2,7 +2,7 @@
 ####################################################
 #                                                  #
 # This is a ocserv installation for CentOS 7       #
-# Version: 0.1.1 2017-01-19                        #
+# Version: 0.1.2 2017-02-03
 # Author: Travis Lee                               #
 # Website: https://www.stunnel.info                #
 #                                                  #
@@ -596,7 +596,7 @@ PrintEnvironmentVariable
 InstallOcserv
 ConfigOcserv
 ConfigFirewall
-Install-http-parser
+#Install-http-parser
 ConfigSystem
 PrintResult
 
