@@ -126,14 +126,14 @@ function PrintEnvironmentVariable {
 
 function InstallOcserv {
     # 升级系统
-    #yum update -y -q
+    # yum update -y -q
 
     # 安装 epel-release
     if [ $(grep epel /etc/yum.repos.d/*.repo | wc -l) -eq 0 ]; then
         yum install -y -q epel-release && yum clean all && yum makecache fast
     fi
-    # 安装ocserv
-    yum install -y ocserv
+    # 安装 ocserv 和 net-tools
+    yum install -y ocserv net-tools
 }
 
 function ConfigOcserv {
