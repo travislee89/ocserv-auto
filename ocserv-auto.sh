@@ -124,13 +124,19 @@ function PrintEnvironmentVariable {
     clear
 }
 
+function InstallFirewalld {
+    yum install firewalld -y -q
+    systemctl enable firewalld
+    systemctl start firewalld
+}
+
 function InstallOcserv {
     # 升级系统
     #yum update -y -q
 
     # 安装 epel-release
     if [ $(grep epel /etc/yum.repos.d/*.repo | wc -l) -eq 0 ]; then
-        yum install -y -q epel-release && yum clean all && yum makecache fast
+        yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y -q && yum clean all && yum makecache fast
     fi
     # 安装ocserv
     yum install -y ocserv
@@ -591,6 +597,7 @@ function PrintResult {
     echo -e "Password:\t\e[34m${password}\e[0m"
 }
 
+InstallFirewalld
 ConfigEnvironmentVariable $@
 PrintEnvironmentVariable
 InstallOcserv
