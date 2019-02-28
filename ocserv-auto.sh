@@ -132,7 +132,7 @@ function InstallFirewalld {
 
 function InstallOcserv {
     # 升级系统
-    #yum update -y -q
+    yum update -y -q
 
     # 安装 epel-release
     if [ $(grep epel /etc/yum.repos.d/*.repo | wc -l) -eq 0 ]; then
