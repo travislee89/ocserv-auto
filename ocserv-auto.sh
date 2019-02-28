@@ -132,11 +132,11 @@ function InstallFirewalld {
 
 function InstallOcserv {
     # 升级系统
-    yum update -y -q
+    yum update -y
 
     # 安装 epel-release
     if [ $(grep epel /etc/yum.repos.d/*.repo | wc -l) -eq 0 ]; then
-        yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y -q && yum clean all && yum makecache fast
+        yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y && yum clean all && yum makecache fast
     fi
     # 安装ocserv
     yum install -y ocserv
