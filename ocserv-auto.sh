@@ -135,9 +135,10 @@ function InstallOcserv {
     yum update -y
 
     # 安装 epel-release
-    if [ $(grep epel /etc/yum.repos.d/*.repo | wc -l) -eq 0 ]; then
-        yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y && yum clean all && yum makecache fast
-    fi
+    # if [ $(grep epel /etc/yum.repos.d/*.repo | wc -l) -eq 0 ]; then
+    #     yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y && yum clean all && yum makecache fast
+    # fi
+    yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm -y && yum clean all && yum makecache fast
     # 安装ocserv
     yum install -y ocserv
 }
